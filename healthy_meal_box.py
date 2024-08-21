@@ -1,7 +1,7 @@
 from random import choice
 
 
-def simulation()
+def simulation():
     num = ['1', '2', '3', '4', '5']
     times = 0
     num_list = []
