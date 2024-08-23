@@ -10,8 +10,9 @@ def simulation():
         num_list = list(dict.fromkeys(num_list))
         times += 1
     if len(num_list) == 5:
-        print(num_list)
-        print(f'It took {times} boxes')
+        for i in range(5):
+            print(num_list[i], end=' ')
+        print(f'\nIt took {times} boxes')
 
 
 if __name__ == '__main__':
