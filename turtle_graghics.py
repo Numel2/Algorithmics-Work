@@ -43,6 +43,7 @@ def long_shape():
         forward(240)
         left(30)
 
+
 def triangle():
     for i in range(3):
         forward(100)
@@ -55,5 +56,31 @@ def square():
         left(90)
 
 
+def tiffany_shape():
+    x = 144
+    for i in range(20):
+        forward(100)
+        left(x)
+        right(1)
+        forward(10)
+
+
+def keyanna_shape():
+    x = 150
+    penup()
+    goto(0, -250)
+    pendown()
+    for i in range(150):
+        forward(x)
+        left(40)
+        x -= 1
+
+
+def david_shape():
+    for i in range(3):
+        circle(90, 180)
+        right(60)
+
+
 if __name__ == '__main__':
-    long_shape()
+    david_shape()
