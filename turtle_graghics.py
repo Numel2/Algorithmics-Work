@@ -80,7 +80,27 @@ def david_shape():
     for i in range(3):
         circle(90, 180)
         right(60)
+    sleep(4)
+
+
+def rokhans_maze():
+    right(90)
+    forward(60)
+    left(90)
+    forward(40)
+    right(90)
+    forward(40)
+    right(90)
+    forward(40)
+    left(90)
+    forward(80)
+    right(90)
+    forward(40)
+    left(90)
+    forward(30)
+    left(90)
+    forward(30)
 
 
 if __name__ == '__main__':
-    david_shape()
+    rokhans_maze()
