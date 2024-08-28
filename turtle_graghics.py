@@ -102,5 +102,32 @@ def rokhans_maze():
     forward(30)
 
 
+def sided():
+    for i in range(18):
+        forward(20)
+        right(20)
+
+
+def maze():
+    goto(0, 0)
+    skib = 200
+    while skib >= 10:
+        forward(skib)
+        right(90)
+        skib -= 10
+    sleep(2)
+    penup()
+    goto(110, -100)
+    sleep(2)
+    pendown()
+    toilet = 10
+    left(90)
+    while toilet <= 200:
+        forward(toilet)
+        left(90)
+        toilet += 10
+    sleep(2)
+
+
 if __name__ == '__main__':
-    rokhans_maze()
+    maze()
