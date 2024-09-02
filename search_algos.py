@@ -1,7 +1,7 @@
 from time import sleep
 
-nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-query = 6
+nums = [1, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+query = 2
 
 
 def linear_search():
@@ -28,8 +28,16 @@ def binary_search():
         elif middle_num < query:
             low = middle + 1
         elif middle_num == query:
-            return print(f'query is at index {middle} and took {steps} steps')
+            return print(f'query is at index {first_occurrence(middle)} and took {steps} steps')
     print('not in list')
+
+
+def first_occurrence(middle):
+    while True:
+        if nums[middle] == nums[middle - 1]:
+            middle -= 1
+        else:
+            return middle
 
 
 if __name__ == '__main__':
