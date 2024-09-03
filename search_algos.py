@@ -2,6 +2,8 @@ from time import sleep
 
 nums = [1, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 query = 2
+sentence = ['among', 'Bruh', 'city', 'Zebra']
+array = [1, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 
 def linear_search():
@@ -40,5 +42,19 @@ def first_occurrence(middle):
             return middle
 
 
+def binary_search_recursive(lower, higher, array, target):
+    if higher >= lower:
+        mid = (lower + higher) // 2
+
+        if array[mid] == target:
+            return print(f'it is in index {mid}')
+        elif array[mid] > target:
+            binary_search_recursive(lower, higher - 1, array, target)
+        elif array[mid] < target:
+            binary_search_recursive(lower + 1, higher, array, target)
+
+
 if __name__ == '__main__':
-    binary_search()
+    binary_search_recursive(0, len(array) - 1, array, 2)
+
+
