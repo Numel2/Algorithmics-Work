@@ -2,7 +2,7 @@ from time import sleep
 
 nums = [1, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 query = 2
-target = 'apple'
+target = 'aaron'
 sentence = ['apple', 'bruh', 'hello', 'world', 'monkey', 'donkey', 'aaron', 'clock', 'chair', 'piano', 'person',
             'happy']
 array = [1, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -64,22 +64,23 @@ def binary_search_recursive(lower, higher, array, target):
 
 
 def binary_search_string():
-    sorted(sentence)
+    sorted_sentence = sorted(sentence)
     low = 0
-    high = len(sentence) - 1
+    high = len(sorted_sentence) - 1
     steps = 0
 
     while low <= high:
         middle = (low + high) // 2
+        middle_word = sorted_sentence[middle]
+        steps += 1
 
-        if sentence[middle] == target:
-            return print(f'it is at index {middle} took {steps} steps')
-        elif ord(sentence[middle][0]) < ord(target[0]):
-            steps += 1
-            low = middle + 1
-        elif ord(sentence[middle][0]) > ord(target[0]):
+        if middle_word > target:
             high = middle - 1
-            steps += 1
+        elif middle_word < target:
+            low = middle + 1
+        elif middle_word == target:
+            return print(f'target is at index {middle} and took {steps} steps')
+    print('not in list')
 
 
 if __name__ == '__main__':
