@@ -6,6 +6,7 @@ target = 'aaron'
 sentence = ['apple', 'bruh', 'hello', 'world', 'monkey', 'donkey', 'aaron', 'clock', 'chair', 'piano', 'person',
             'happy']
 array = [1, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+index = 0
 
 
 def linear_search():
@@ -21,6 +22,18 @@ def linear_search_string():
         if sentence[word].lower() == target:
             return print(f'index is {word}, took {word + 1} steps')
     print('not in list')
+
+
+def linear_search_recursion(index):
+    if len(sentence) == 0:
+        print('not in list')
+        return
+    elif sentence[index] == target:
+        print(f'index at {index}')
+        return
+    else:
+        linear_search_recursion(index + 1)
+
 
 
 def binary_search():
@@ -84,4 +97,4 @@ def binary_search_string():
 
 
 if __name__ == '__main__':
-    binary_search_string()
+    linear_search_recursion(index)
