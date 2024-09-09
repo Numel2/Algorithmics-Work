@@ -1,8 +1,11 @@
 from time import sleep
+from random import choice
 
-nums = [1, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-query = 2
-target = 'aaron'
+nums = [12, 3, 2, 4, 5, 6, 7, 8, 9, 10, 11, 1]
+query = 12
+hill1 = [1, 3, 4, 2, 1.5, 1, 1, 3, 2, 4, 5, 6, 4, 3, 2, 0]
+
+target = 'apple'
 sentence = ['apple', 'bruh', 'hello', 'world', 'monkey', 'donkey', 'aaron', 'clock', 'chair', 'piano', 'person',
             'happy']
 array = [1, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -33,7 +36,6 @@ def linear_search_recursion(index):
         return
     else:
         linear_search_recursion(index + 1)
-
 
 
 def binary_search():
@@ -96,5 +98,28 @@ def binary_search_string():
     print('not in list')
 
 
+def insertion_sort():
+    x = nums[len(nums) - 1]
+    print(x)
+    while True:
+        if x < nums[x - 1] and x != -1:
+            a, b = nums.index(nums[x]), nums.index(nums[x - 1])
+            nums[b], nums[a] = nums[a], nums[b]
+            print(nums)
+            x -= 1
+        if x > nums[x - 1]:
+            x -= 1
+            print(nums)
+        elif x == nums[0]:
+            print(nums)
+            return
+
+
+def search_right(heights, i):
+    while i < len(heights) - 1 and heights[i + 1] >= heights[i]:
+        i = i + 1
+    return print(f'index is {i}')
+
+
 if __name__ == '__main__':
-    linear_search_recursion(index)
+    search_right(hill1, 0)
