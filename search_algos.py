@@ -3,7 +3,6 @@ from random import choice
 
 nums = [12, 3, 2, 4, 5, 6, 7, 8, 9, 10, 11, 1]
 query = 12
-hill1 = [1, 3, 4, 2, 1.5, 1, 1, 3, 2, 4, 5, 6, 4, 3, 2, 0]
 
 target = 'apple'
 sentence = ['apple', 'bruh', 'hello', 'world', 'monkey', 'donkey', 'aaron', 'clock', 'chair', 'piano', 'person',
@@ -115,11 +114,41 @@ def insertion_sort():
             return
 
 
+hill1 = [1, 3, 4, 2, 1, 2, 1, 3, 2, 4, 5, 6, 4, 3, 2, 0]
+
+
+def search_left(heights, i):
+    while i > 0 and heights[i - 1] >= heights[i]:
+        i = i - 1
+    return i
+
+
 def search_right(heights, i):
     while i < len(heights) - 1 and heights[i + 1] >= heights[i]:
         i = i + 1
-    return print(f'index is {i}')
+    return i
+
+
+def hill_climbing(heights, i):
+    if i > 0 and heights[i - 1] > heights[i]:
+        x = search_left(heights, i - 1)
+        print(x)
+    else:
+        y = search_right(heights, i)
+        print(y)
+
+
+def exhaustive_search(heights):
+    best_value = float('-inf')
+    best_index = -1
+
+    for i in range(len(heights)):
+        if heights[i] > best_value:
+            best_value = heights[i]
+            best_index = i
+
+    return print(best_index)
 
 
 if __name__ == '__main__':
-    search_right(hill1, 0)
+    exhaustive_search(hill1)
